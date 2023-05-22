@@ -1,0 +1,152 @@
+<script type="text/javascript">
+  RED.nodes.registerType('sitx-bridge-adapter both', {
+      category: 'SitX / TeamConnect',
+      color: '#a6bbcf',
+      defaults: {
+          name: {value:""},
+          access_key_id: {value:""},
+          secret_key: {value:""},
+          resource_uri: {value:""},
+          scope: {value:"/.bridge-both"}
+      },
+      inputs:1,
+      outputs:1,
+      icon: "PAR-SITX-Logo.png",
+      label: function() {
+        return this.name||"sitx-bridge-adapter";
+      }
+  });
+
+  RED.nodes.registerType('sitx-bridge-adapter in', {
+      category: 'SitX / TeamConnect',
+      color: '#a6bbcf',
+      defaults: {
+          name: {value:""},
+          access_key_id: {value:""},
+          secret_key: {value:""},
+          resource_uri: {value:""},
+          scope: {value:"/.bridge-out"}
+      },
+      inputs:0,
+      outputs:1,
+      icon: "PAR-SITX-Logo.png",
+      label: function() {
+        return this.name||"sitx-bridge-adapter";
+      }
+  });
+
+  RED.nodes.registerType('sitx-bridge-adapter out', {
+      category: 'SitX / TeamConnect',
+      color: '#a6bbcf',
+      defaults: {
+          name: {value:""},
+          access_key_id: {value:""},
+          secret_key: {value:""},
+          resource_uri: {value:""},
+          scope: {value:"/.bridge-in"}
+      },
+      inputs:1,
+      outputs:0,
+      icon: "PAR-SITX-Logo.png",
+      label: function() {
+        return this.name||"sitx-bridge-adapter";
+      }
+  });
+</script>
+
+<script type="text/html" data-template-name="sitx-bridge-adapter both">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+    <input type="hidden" id="node-input-scope">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-resource_uri"><i class="fa fa-tag"></i> GroupURI</label>
+    <input type="text" id="node-input-resource_uri" placeholder="Your SitX Group URI">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-access_key_id"><i class="fa fa-tag"></i> AccessKey</label>
+    <input type="text" id="node-input-access_key_id" placeholder="Access Key">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-secret_key"><i class="fa fa-tag"></i> SecretKey</label>
+    <input type="text" id="node-input-secret_key" placeholder="Secret Key">
+  </div>
+
+</script>
+
+<script type="text/html" data-template-name="sitx-bridge-adapter in">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+    <input type="hidden" id="node-input-scope">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-resource_uri"><i class="fa fa-tag"></i> GroupURI</label>
+    <input type="text" id="node-input-resource_uri" placeholder="Your SitX Group URI">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-access_key_id"><i class="fa fa-tag"></i> AccessKey</label>
+    <input type="text" id="node-input-access_key_id" placeholder="Access Key">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-secret_key"><i class="fa fa-tag"></i> SecretKey</label>
+    <input type="text" id="node-input-secret_key" placeholder="Secret Key">
+  </div>
+</script>
+
+<script type="text/html" data-template-name="sitx-bridge-adapter out">
+  <div class="form-row">
+    <label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+    <input type="text" id="node-input-name" placeholder="Name">
+    <input type="hidden" id="node-input-scope">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-resource_uri"><i class="fa fa-tag"></i> GroupURI</label>
+    <input type="text" id="node-input-resource_uri" placeholder="Your SitX Group URI">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-access_key_id"><i class="fa fa-tag"></i> AccessKey</label>
+    <input type="text" id="node-input-access_key_id" placeholder="Access Key">
+  </div>
+
+  <div class="form-row">
+    <label for="node-input-secret_key"><i class="fa fa-tag"></i> SecretKey</label>
+    <input type="text" id="node-input-secret_key" placeholder="Secret Key">
+  </div>
+</script>
+
+<script type="text/html" data-help-name="sitx-bridge-adapter both">
+  <p>A connector to establish a Sit(x) Bridge Adatper by PAR Gov.</p>
+</script>
+
+<script type="text/html" data-help-name="sitx-bridge-adapter in">
+  <p>Sit(x) Bridge Adapter in node.
+  <p>A connector to establish a Sit(x) Bridge Adatper by PAR Gov into a Node-RED Flow.</p>
+  <h3>Details</h3>
+  <p>
+    <code>Required Authorized Sit(x) Scope</code>
+    <p>The "Sit(x) Bridge Adapter In" node requires an ACCESS KEY and SECRET with an authorized Sit(x) group scope of "bridge-out"; i.e. it bridges data out of an authorized group and into the respective Flow defined here in Node-RED.</p>
+
+    <p><code>Payload</code>
+    <p>All <code>msg.payload</code> data that flows through this node is required to be valid CoT XML (Cursor-on-Target schema).
+</script>
+<script type="text/html" data-help-name="sitx-bridge-adapter out">
+  <p>Sit(x) Bridge Adapter out node.
+  <p>A connector to establish a Sit(x) Bridge Adatper by PAR Gov out of a Node-RED Flow.</p>
+  <h3>Details</h3>
+  <p>
+    <code>Required Authorized Sit(x) Scope</code>
+    <p>The "Sit(x) Bridge Adapter Out" node requires an ACCESS KEY and SECRET with an authorized Sit(x) group scope of "bridge-in"; i.e. it bridges data out of a Node-RED flow and into an authorized Sit(x) Group.</p>
+
+    <p><code>Payload</code>
+    <p>All <code>msg.payload</code> data that flows through this node is required to be valid CoT XML (Cursor-on-Target schema).
+</script>

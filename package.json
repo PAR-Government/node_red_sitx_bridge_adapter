@@ -1,0 +1,26 @@
+{
+  "name": "node-red-contrib-sitx-bridge-adapter",
+  "version": "1.0.0",
+  "description": "A NODE-Red connector to establish a Sit(x) Bridge Adatper by PAR Gov.",
+  "main": "sitx_bridge_adapter.js",
+  "dependencies": {
+    "request": "^2.88.2",
+    "ws": "^8.5.0"
+  },
+  "node-red": {
+    "nodes": {
+      "sitx-bridge-adapter": "sitx-bridge-adapter.js"
+    }
+  },
+  "scripts": {
+    "test": "npm test"
+  },
+  "keywords": [
+    "SitX",
+    "Sit(x)",
+    "adapter",
+    "connector"
+  ],
+  "author": "Scott P. Stewart",
+  "license": "ISC"
+}
