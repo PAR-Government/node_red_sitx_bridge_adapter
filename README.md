@@ -13,11 +13,13 @@ Ensure you have `npm` installed and it is up-to-date. Clone this repository and 
 Once that has been run we can add this to Node-RED using the [developer testing](https://nodered.orgdocs/creating-nodes/first-node#testing-your-node-in-node-red) flow. Change into your node-red user directory (typically `~/.node-red`) and run `npm install <location of where you cloned this repository>`. Then restart your Node-RED server to pick up the changes.
 
 Once your Node-RED server has restarted, open the hamburger menu and go to Manage Palette. You should see the `node-red-contrib-sitx-bridge-adapter` as a Node in your Palette.
+
 [![Node-RED Palette](docs/node-red-palette.png)](docs/node-red-palette.png)
 
 ## Configuring
 
 Within the Node-RED workflow you want to use this, drop a SitX TeamConnect node onto your workflow. You can choose an "in" adapter (for incoming messages to Node-RED), "out" adapter (for outgoing messages to Sit(X)) or "both" (bi-directional communications). This must match the scope you set up for your Bridge Adapter.
+
 [![Sit(X) Nodes](docs/node-red-nodes.png)](docs/node-red-nodes.png)
 
 Double-click on the node to bring up the Properties node. 
@@ -26,9 +28,11 @@ Double-click on the node to bring up the Properties node.
  * Enter the GroupURI as the `https` URL to your group. As an example, for a server called `yourorg` and a group `sitx-group-12a3bc4d` you would put `https://yourorg.takserver.parteamconnect.com/sitx-group-12a3bc4d` without the bridge scope
  * Your AccessKey should be the Access Key ID from your Bridge Adapter
  * Your SecretKey should be the Secret Key from your Bridge Adapter
+
 [![Sit(X) Nodes](docs/node-properties.png)](docs/node-properties.png)
 
 Once you deploy your workflow the SitX node should show a "connected" status underneath it. This means you are connected. If this does not show up, please check your debug / console logs.
+
 [![Node-RED Workflow](docs/node-red-workflow.png)](docs/node-red-workflow.png)
 
 ## Usage
